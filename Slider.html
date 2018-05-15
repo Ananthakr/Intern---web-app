@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slidder</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap/css/slidderCss.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-4-lg">
+                <!--bootstrap card-->
+                <div class="card" style="width : 18rem;">
+                    <img src="assets/img/photography.jpg" alt ="Card One" class="card-img-top" height="300px"  >
+                    <div class="card-body">
+                    <h5 class="card-titiel">Photography</h5>
+                    <p>“In photography there is a reality so subtle that it becomes more real than reality.”</p>
+                    <a href="#" class="btn btn-primary">Read</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4-lg ml-3">
+                    <div class="card" style="width : 18rem;">
+                            <img src="assets/img/programe.jpg" alt ="Card One" class="card-img-top" height="300px"  >
+                            <div class="card-body">
+                            <h5 class="card-titiel">Programming!</h5>
+                            <p>“Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live” </p>
+                            <a href="#" class="btn btn-primary">Read</a>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-4-lg ml-3">
+                    <div class="card" style="width : 18rem;">
+                            <img src="assets/img/gaming.jpg" alt ="Card One" class="card-img-top" height="300px"  >
+                            <div class="card-body">
+                            <h5 class="card-titiel">Gaming</h5>
+                            <p>Gaming has been a great way to get to know people. That's part of what I love about games, that they are social.</p>
+                            <a href="#" class="btn btn-primary">Read</a>
+                            </div>
+                    </div> 
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+            $('.col-4-lg').hover(
+                //trigger when mouse hover 
+                function(){
+                    $(this).animate({
+                        marginTop: "-=1%",
+                    },200);
+                },
+                //trigger when mouse out
+                function(){
+                    $(this).animate({
+                        marginTop:"0%",
+                    },200);
+                }
+            );
+        });
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/form.css">
+  
+</head>
+<body>
+    <div id="wrapper">
+    <form action="https://formspree.io/sathish27121998@gmail.com" method="POST" onsubmit="return Validate()" name="vform">
+      <h2>Fill up your form !</h2>
+        <div>
+            <input type="text" name="username" class="textInput" placeholder="UserName">
+            <div id="nameerr" class="valerr"></div>
+        </div>
+        <div>
+            <input type="email" name="email" class="textInput" placeholder="Email">
+            <div id="emailerr" class="valerr"></div>
+        </div>
+        <div>
+            <input type="password" name="password" class="textInput" placeholder="Password !">
+            <div id="passerr" class="valerr"></div>
+        </div>
+        <div>
+                <input type="password" name="password_re" class="textInput" placeholder=" Re-Enter the Password !">
+                <div id="passerr" class="valerr"></div>
+            </div>
+        <div>
+            <input type="submit" value="Register" class="btn" name="register" >
+        </div>
+
+        </div>
+    </form>
+    </div>
+    
+</body>
+
+</html>
+<script type="text/javascript">
+
+
+// SELECTING ALL TEXT ELEMENTS
+
+var username = document.forms['vform']['username'];
+var email = document.forms['vform']['email'];
+var password = document.forms['vform']['password'];
+var password_confirm = document.forms['vform']['password-re'];
+
+// SELECTING ALL ERROR DISPLAY ELEMENTS
+var name_error = document.getElementById('nameerr');
+var email_error = document.getElementById('emailerr');
+var password_error = document.getElementById('passerr');
+username.addEventListener('blur', nameVerify, true);
+email.addEventListener('blur', emailVerify, true);
+password.addEventListener('blur', passwordVerify, true);
+// validation function
+function Validate() {
+  // validate username
+  if (username.value == "") {
+    username.style.border = "1px solid red";
+    document.getElementById('username_div').style.color = "red";
+    name_error.textContent = "Username is required";
+    username.focus();
+    return false;
+  }
+  // validate username
+  var numbers = /^[0-9]+$/;
+  if (username.value.length < 3 && username.value.match(numbers)) {
+    username.style.border = "1px solid red";
+    document.getElementById('username_div').style.color = "red";
+    name_error.textContent = "Username must be at least 3 characters";
+    username.focus();
+    return false;
+  }
+  // validate email
+  if (email.value == "") {
+    email.style.border = "1px solid red";
+    document.getElementById('email_div').style.color = "red";
+    email_error.textContent = "Email is required";
+    email.focus();
+    return false;
+  }
+  // validate password
+  if (password.value == "" && password.value.length<=8 && password.value.length>=16 ){
+  if(!password.value.match =="/^[!-*]+$/" && !password.value.match("/^[A-Z]+$/")){
+    password.style.border = "1px solid red";
+    document.getElementById('password_div').style.color = "red";
+    password_confirm.style.border = "1px solid red";
+    password_error.textContent = "Password is required";
+    alert("Password should contain one spl character and one capital letter and should be alphanumberic")
+    password.focus();
+    return false;
+  }}
+  // check if the two passwords match
+  if (password.value != password_re.value) {
+    password.style.border = "1px solid red";
+    document.getElementById('pass_re_div').style.color = "red";
+    password_confirm.style.border = "1px solid red";
+    password_error.innerHTML = "The two passwords do not match";
+    alert("Password Mismatch");
+    return false;
+  }
+}
+// event handler functions
+function nameVerify() {
+  if (username.value != "") {
+   username.style.border = "1px solid #5e6e66";
+   document.getElementById('username_div').style.color = "#5e6e66";
+   name_error.innerHTML = "Enter your Name please!!";
+   return true;
+  }
+}
+function emailVerify() {
+  if (email.value != "") {
+  	email.style.border = "1px solid #5e6e66";
+  	document.getElementById('email_div').style.color = "#5e6e66";
+  	email_error.innerHTML = "Please ! Enter your mail-Id";
+  	return true;
+  }
+
+}
+function passwordVerify() {
+  if (password.value != "") {
+  	password.style.border = "1px solid #5e6e66";
+  	document.getElementById('pass_re_div').style.color = "#5e6e66";
+  	document.getElementById('password_div').style.color = "#5e6e66";
+  	password_error.innerHTML = "";
+  	return true;
+  }
+  if (password.value === password_confirm.value) {
+  	password.style.border = "1px solid #5e6e66";
+  	document.getElementById('pass_re_div').style.color = "#5e6e66";
+  	password_error.innerHTML = "";
+  	return true;
+  }
+}
+</script>
